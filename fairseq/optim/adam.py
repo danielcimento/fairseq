@@ -19,7 +19,7 @@ from omegaconf import II, OmegaConf
 
 
 logger = logging.getLogger(__name__)
-device_name = torch.cuda.get_device_name(0)
+device_name = torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu"
 
 
 @dataclass

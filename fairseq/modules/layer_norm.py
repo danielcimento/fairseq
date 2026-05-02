@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-device_name = torch.cuda.get_device_name(0)
+device_name = torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu"
 
 try:
     from apex.normalization import FusedLayerNorm as _FusedLayerNorm
